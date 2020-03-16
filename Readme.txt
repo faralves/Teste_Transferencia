@@ -1,3 +1,11 @@
+No Banco de dados serão criadas 4 tabelas:
+ Agencia
+ Banco
+ ContaCorrente
+ Lancamentos
+
+ No projeto FastMindBank, deve se alterar no arquivo "appsettings.json" a string de conexão para criar o Banco e as tabelas
+
 Segue exemplo do Json para consulta:
 
 {
