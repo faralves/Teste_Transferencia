@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using FastMindBank.Model;
 using FastMindBank.AppService.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FastMindBank.AppService
 {

@@ -47,7 +47,7 @@ namespace FastMindBank.Migrations
                     Conta = table.Column<long>(nullable: false),
                     Digito = table.Column<int>(nullable: false),
                     Saldo = table.Column<decimal>(nullable: false),
-                    ClienteRef = table.Column<string>(nullable: true)
+                    NomeCliente = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

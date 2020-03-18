@@ -10,7 +10,7 @@ namespace FastMindBank.Model
         private decimal _saldo;
         private Int64 _conta;
         private Int32 _digito;
-        private string _clienteRef;
+        private string _nomeCliente;
         private IList<Lancamentos> _lancamentos;
 
         public ContaCorrente() 
@@ -18,7 +18,7 @@ namespace FastMindBank.Model
             _lancamentos = new List<Lancamentos>();
         }
 
-        public ContaCorrente(Banco banco, Agencia agencia, Int64 conta, Int32 digito, decimal saldo, IList<Lancamentos> lancamentos, string clienteRef)
+        public ContaCorrente(Banco banco, Agencia agencia, Int64 conta, Int32 digito, decimal saldo, IList<Lancamentos> lancamentos, string nomeCliente)
         {
             this.Banco = _banco;
             this.Agencia = _agencia;
@@ -26,7 +26,7 @@ namespace FastMindBank.Model
             this.Digito = digito;
             _saldo = saldo;
             _lancamentos = lancamentos;
-            _clienteRef = clienteRef;
+            _nomeCliente = nomeCliente;
         }
 
         public Banco Banco
@@ -61,10 +61,10 @@ namespace FastMindBank.Model
             set { _lancamentos = value; }
         }
 
-        public string ClienteRef
+        public string NomeCliente
         {
-            get { return _clienteRef; }
-            set { _clienteRef = value; }
+            get { return _nomeCliente; }
+            set { _nomeCliente = value; }
         }
         public bool PodeDebitar(decimal montante)
         {
@@ -75,7 +75,7 @@ namespace FastMindBank.Model
             if (PodeDebitar(montante))
             {
                 Saldo -= montante;
-                Lancamentos = new List<Lancamentos>();
+                //Lancamentos = new List<Lancamentos>();
                 Lancamentos.Add(new Lancamentos(0m, montante, referencia, DateTime.Now));
             }
             else
@@ -84,7 +84,7 @@ namespace FastMindBank.Model
         public void Creditar(decimal montante, string refenrencia)
         {
             Saldo += montante;
-            Lancamentos = new List<Lancamentos>();
+            //Lancamentos = new List<Lancamentos>();
             Lancamentos.Add(new Lancamentos(montante, 0m, refenrencia, DateTime.Now));
         }
         public IEnumerable<Lancamentos> GetTransactions()

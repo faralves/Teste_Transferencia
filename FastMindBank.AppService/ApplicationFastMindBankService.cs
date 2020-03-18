@@ -2,9 +2,7 @@
 using FastMindBank.AppService.Messages;
 using FastMindBank.Model;
 using FastMindBank.Model.Contrato;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace FastMindBank.AppService
 {
@@ -29,7 +27,7 @@ namespace FastMindBank.AppService
             try
             {
                 CriarContaCorrenteResponse criarContaCorrenteResponse = new CriarContaCorrenteResponse();
-                ContaCorrente contaCorrente = new ContaCorrente(criarContaCorrenteRequest.Banco, criarContaCorrenteRequest.Agencia, 0, criarContaCorrenteRequest.Digito, criarContaCorrenteRequest.Saldo, new List<Lancamentos>(), criarContaCorrenteRequest.ClienteRef);
+                ContaCorrente contaCorrente = new ContaCorrente(criarContaCorrenteRequest.Banco, criarContaCorrenteRequest.Agencia, 0, criarContaCorrenteRequest.Digito, criarContaCorrenteRequest.Saldo, new List<Lancamentos>(), criarContaCorrenteRequest.NomeCliente);
                 _iFastMindBankRepository.Add(contaCorrente);
                 return criarContaCorrenteResponse;
             }

@@ -61,7 +61,7 @@ namespace FastMindBank.Migrations
 
                     b.Property<long?>("BancoId");
 
-                    b.Property<string>("ClienteRef");
+                    b.Property<string>("NomeCliente");
 
                     b.Property<long>("Conta");
 

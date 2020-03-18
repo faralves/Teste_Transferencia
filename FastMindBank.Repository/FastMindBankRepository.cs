@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace FastMindBank.Repository
 {
@@ -32,33 +31,16 @@ namespace FastMindBank.Repository
         public void Save(ContaCorrente contaCorrente)
         {
             ContaCorrente conta = PesquisarConta(contaCorrente.Banco, contaCorrente.Agencia, contaCorrente.Conta, contaCorrente.Digito);
-            conta.ClienteRef = contaCorrente.ClienteRef;
+            conta.NomeCliente = contaCorrente.NomeCliente;
             conta.Saldo = contaCorrente.Saldo;
 
-            foreach (Lancamentos lancamento in conta.Lancamentos)
-                lancamento.ContaCorrente = conta;
-
-            context.ContaCorrente.Update(conta);
-            //context.SaveChanges();
+            context.SaveChanges();
             updateOrCreateTransaction(contaCorrente);
         }
 
         public IEnumerable<ContaCorrente> PesquisarTodasContas()
         {
-            var ListaDeContas = context.ContaCorrente.Include(x => x.Lancamentos).ToList();
-
-            foreach (ContaCorrente contaCorrente in ListaDeContas)
-            {
-                if (contaCorrente.Lancamentos != null)
-                {
-                    foreach (Lancamentos lancamentos in contaCorrente.Lancamentos)
-                    {
-                        lancamentos.ContaCorrente = null;
-                    }
-                }
-            }
-            return ListaDeContas;
-
+            return context.ContaCorrente.Include(x => x.Lancamentos).ToList();
         }
 
         public ContaCorrente PesquisarConta(Banco banco, Agencia agencia, Int64 conta, Int32 digito)

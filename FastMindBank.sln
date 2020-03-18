@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastMindBank.Repository", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastMindBank.AppService", "FastMindBank.AppService\FastMindBank.AppService.csproj", "{1F6B21D3-F132-48F0-9FF7-30C1761AC913}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastMindBank.Teste", "FastMindBank.Teste\FastMindBank.Teste.csproj", "{97ED8965-6545-4D78-B5B1-4982BC875A69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastMindBank.TesteIntegracao", "FastMindBank.Teste\FastMindBank.TesteIntegracao.csproj", "{97ED8965-6545-4D78-B5B1-4982BC875A69}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02438369-8AA7-44A2-965A-A5DD6B0D19F6}"
 	ProjectSection(SolutionItems) = preProject

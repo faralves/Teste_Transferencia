@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
 using FastMindBank.AppService;
 using FastMindBank.AppService.Messages;
 using FastMindBank.Model;
@@ -23,25 +19,26 @@ namespace FastMindBank.Controllers
         }
 
 
-        // POST api/values
+        // POST api/Transferir
         [HttpPost]
-        public HttpResponseMessage Transferir([FromBody] TransferenciaRequest transferenciaRequest)
+        public IActionResult Transferir([FromBody] TransferenciaRequest transferenciaRequest)
         {
             HttpRequestMessage request = new HttpRequestMessage();
 
             try
             {
                 TransferenciaResponse response = _servicoBank.Transferir(transferenciaRequest);
-                return request.CreateResponse(HttpStatusCode.OK);
+                response.Mensagem = "Transferência efetuada com sucesso!";
+                return Ok(response);
             }
-            catch (SaldoInsuficienteException )
+            catch (SaldoInsuficienteException ex)
             {
 
-                return request.CreateResponse(HttpStatusCode.BadRequest);
+                return BadRequest(ex);
             }
-            catch (Exception ) 
+            catch (Exception ex) 
             {
-                return request.CreateResponse(HttpStatusCode.BadRequest);
+                return BadRequest(ex);
             }
         }
     }

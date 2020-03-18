@@ -17,7 +17,7 @@ namespace FastMindBank.AppService.ViewModel
 
         public List<LancamentosView> Lancamentos { get; set; }
 
-        public string ClienteRef { get; set; }
+        public string NomeCliente { get; set; }
 
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FastMindBank.AppService.Messages
+﻿namespace FastMindBank.AppService.Messages
 {
     public class ResponseBase
     {

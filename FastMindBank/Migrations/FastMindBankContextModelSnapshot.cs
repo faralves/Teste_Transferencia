@@ -42,7 +42,7 @@ namespace FastMindBank.Migrations
 
                     b.Property<int>("CodigoBanco");
 
-                    b.Property<string>("Nome");
+                    b.Property<string>("Nome").HasMaxLength(100);
 
                     b.HasKey("Id");
 
@@ -59,7 +59,7 @@ namespace FastMindBank.Migrations
 
                     b.Property<long?>("BancoId");
 
-                    b.Property<string>("ClienteRef");
+                    b.Property<string>("NomeCliente").HasMaxLength(100);
 
                     b.Property<long>("Conta");
 
@@ -90,7 +90,7 @@ namespace FastMindBank.Migrations
 
                     b.Property<decimal>("Debito");
 
-                    b.Property<string>("Referencia");
+                    b.Property<string>("Referencia").HasMaxLength(200);
 
                     b.HasKey("Id");
 

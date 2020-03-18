@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FastMindBank.AppService.ViewModel
+﻿namespace FastMindBank.AppService.ViewModel
 {
     public class AgenciaView : BaseEntityView
     {
